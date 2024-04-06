@@ -2,10 +2,10 @@
 
 const socket = io();
 
-const nickName = document.querySelector("#nickname");
-const chatList = document.querySelector(".chatting-list");
-const chatInput = document.querySelector(".chatting-input");
-const sebdButton = document.querySelector(".send-button");
+const nickName         = document.querySelector("#nickname");
+const chatList         = document.querySelector(".chatting-list");
+const chatInput        = document.querySelector(".chatting-input");
+const sebdButton       = document.querySelector(".send-button");
 const displayContainer = document.querySelector(".display-container");
 
 

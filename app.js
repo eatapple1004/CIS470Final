@@ -1,10 +1,10 @@
-const express = require("express");
-const http = require("http")
-const app = express();
-const path = require("path")
-const server = http.createServer(app)
-const socketIO = require("socket.io")
-const moment = require("moment")
+const express   = require("express");
+const http      = require("http")
+const app       = express();
+const path      = require("path")
+const server    = http.createServer(app)
+const socketIO  = require("socket.io")
+const moment    = require("moment")
 
 const io = socketIO(server);
 
@@ -23,6 +23,5 @@ io.on("connection", (socket) => {
         })
     })
 })
-
 
 server.listen(PORT, () => console.log('server is running 5000'))
