@@ -5,28 +5,24 @@ const socket = io();
 const nickName         = document.querySelector("#nickname");
 const chatList         = document.querySelector(".chatting-list");
 const chatInput        = document.querySelector(".chatting-input");
-const sebdButton       = document.querySelector(".send-button");
+const sendButton       = document.querySelector(".send-button");
 const displayContainer = document.querySelector(".display-container");
 
 
 chatInput.addEventListener("keypress", (event) => {
-    if(event.keyCode === 13) { // when press enter
-        send();
-    }
+    if(event.keyCode === 13) send(); // keyCode 13 is 'Enter'
 })
 
 function send() {
     const param = {
         name: nickName.value,
-        msg: chatInput.value
+        msg:  chatInput.value
     }
     socket.emit("chatting", param)
-    chatInput.value = "";
+    chatInput.value = ""; // Initialization
 }
 
-sebdButton.addEventListener("click", send)
-
-
+sendButton.addEventListener("click", send)
 
 
 socket.on("chatting", (data) => {
@@ -38,7 +34,7 @@ socket.on("chatting", (data) => {
 
 function LiModel(name ,msg, time) {
     this.name = name;
-    this.msg = msg;
+    this.msg  = msg;
     this.time = time;
 
     this.makeLi = () => {
@@ -53,6 +49,5 @@ function LiModel(name ,msg, time) {
 
         li.innerHTML = dom;
         chatList.appendChild(li);
-
     }
 }
